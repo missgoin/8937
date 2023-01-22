@@ -1,0 +1,67 @@
+menuconfig MACH_XIAOMI
+	bool "Xiaomi devices"
+
+if MACH_XIAOMI
+
+config MACH_XIAOMI_HIDDEN_OPTIONS
+	bool "Show hidden options"
+	help
+	  Some options cannot be selected at the same time by default because of having conflict. Select this to make them available.
+
+config MACH_XIAOMI_LAND
+	bool "Xiaomi Redmi 3S"
+	depends on ARCH_MSM8937
+	help
+	  Support for Xiaomi Redmi 3S.
+
+config MACH_XIAOMI_PRADA
+	bool "Xiaomi Redmi 4 Standard"
+	depends on ARCH_MSM8937
+	help
+	  Support for Xiaomi Redmi 4 Standard.
+
+config MACH_XIAOMI_ROVA
+	bool
+
+config MACH_XIAOMI_RIVA
+	bool "Xiaomi Redmi 5A"
+	depends on ARCH_MSM8917
+	select MACH_XIAOMI_ROVA
+	help
+	  Support for Xiaomi Redmi 5A.
+
+config MACH_XIAOMI_RIVA_OREO
+	bool "Xiaomi Redmi 5A (with Oreo bootloader)"
+	depends on MACH_XIAOMI_RIVA
+	depends on (!MACH_XIAOMI_ROLEX && !MACH_XIAOMI_TIARE ) || MACH_XIAOMI_HIDDEN_OPTIONS
+	help
+	  Support for Xiaomi Redmi 5A (with Oreo bootloader).
+
+config MACH_XIAOMI_ROLEX
+	bool "Xiaomi Redmi 4A"
+	depends on ARCH_MSM8917
+	select MACH_XIAOMI_ROVA
+	help
+	  Support for Xiaomi Redmi 4A.
+
+config MACH_XIAOMI_SANTONI
+	bool "Xiaomi Redmi 4X"
+	depends on ARCH_MSM8940
+	help
+	  Support for Xiaomi Redmi 4X.
+
+config MACH_XIAOMI_TIARE
+	bool "Xiaomi Redmi Go"
+	depends on ARCH_MSM8917
+	depends on !MACH_XIAOMI_ROLEX || MACH_XIAOMI_HIDDEN_OPTIONS
+	help
+	  Support for Xiaomi Redmi Go.
+
+config MACH_XIAOMI_ULYSSE
+	bool "Xiaomi Redmi Note 5A (Unified)"
+	depends on ARCH_MSM8917
+	depends on ARCH_MSM8940
+	help
+	  Support for Xiaomi Redmi Note 5A (Unified).
+
+endif
